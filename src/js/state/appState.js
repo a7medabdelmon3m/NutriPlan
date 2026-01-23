@@ -41,10 +41,10 @@ calcTotalNutritons(){
       }else{
         serv = log.numOfservingOrBrand ; 
       }
-         cal += (log.nutritions.calories*serv) ; 
-         pro += (log.nutritions.protein*serv) ; 
-         carbs += (log.nutritions.carbs*serv) ; 
-         fat += (log.nutritions.fat*serv) ; 
+         cal += Math.round(log.nutritions.calories*serv) ; 
+         pro += Math.round(log.nutritions.protein*serv) ; 
+         carbs += Math.round(log.nutritions.carbs*serv) ; 
+         fat += Math.round(log.nutritions.fat*serv) ; 
     })
     totals = { cal, pro, carbs, fat };
     this.totalNutritions = totals ; 
