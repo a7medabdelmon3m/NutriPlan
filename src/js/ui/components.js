@@ -213,7 +213,7 @@ export default class components {
                   ${recipe.name}
                 </h3>
                 <p class="text-xs text-gray-600 mb-3 line-clamp-2">
-            "instructions": [
+            "instructions":
                   ${recipe.instructions}
                 </p>
                 <div class="flex items-center justify-between text-xs">
