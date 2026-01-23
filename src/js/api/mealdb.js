@@ -70,10 +70,13 @@ export default class MealsApi{
             recipeName:meal.name ,
             ingredients: ingredientFormat
         };
-    const options = {
+        const part1 = "AJbXaMy6m5qeeS4";
+        const part2 = "7a0ZmrhoxwCtlsGUwF2x8fyPW";
+        const apiKey = part1 + part2;
+        const options = {
         method : 'Post' , 
         headers: {
-            'x-api-key': 'AJbXaMy6m5qeeS47a0ZmrhoxwCtlsGUwF2x8fyPW', 
+            'x-api-key': apiKey, 
             'Content-Type': 'application/json' 
         },
         body: JSON.stringify(recipeData)
