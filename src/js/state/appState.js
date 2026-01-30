@@ -10,6 +10,13 @@ export default class appState{
         carbs : 0,
         fat:0
     } ;  
+    localStorage.setItem('weekCals', JSON.stringify({
+  cals: 200,        
+  dayName: "Wed",  
+  dayNum: 28,       
+  fullDate: "1/28/2026",
+  items: 1          
+}));
   }
 
 addFoodOrProduct(name , type, nutritions , id , imgSrc , numOfservingOrBrand ){
@@ -95,16 +102,10 @@ if(idx > -1){
   this.calsOverWeek.push(obj) ; 
 }
 if(this.calsOverWeek.length > 7 ){
-  this.calsOverWeek.pop() ; 
+  this.calsOverWeek.shift() ; 
 }
 localStorage.setItem('weekCals', JSON.stringify(this.calsOverWeek));
 }
-  localStorage.setItem('weekCals', JSON.stringify({
-  cals: 200,        
-  dayName: "Wed",  
-  dayNum: 28,       
-  fullDate: "1/28/2026",
-  items: 1          
-}));
+  
 
 }
