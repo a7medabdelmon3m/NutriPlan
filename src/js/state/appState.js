@@ -104,6 +104,6 @@ localStorage.setItem('weekCals', JSON.stringify(this.calsOverWeek));
   dayName: "Wed",  
   dayNum: 28,       
   fullDate: "1/28/2026",
-  items: 1   ;
+  items: 1   ;}))
 
 }
