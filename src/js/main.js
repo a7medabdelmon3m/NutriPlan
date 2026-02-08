@@ -326,13 +326,13 @@ class App {
       let products = await this.mealAPI.searchproduct(productValue);
       this.compUi.showSearchResult(products,productValue) ;
       
-      if (!products || products.length === 0) {
+      if (!products.results || products.results.length === 0) {
         this.compUi.showEmptyState();
          
         
         return;
       }
-      this.compUi.displaySearchedProduct(products);
+      this.compUi.displaySearchedProduct(products.results);
     });
     this.productCategoryBtns.forEach((productBtn) => {
       productBtn.addEventListener("click", async (e) => {
@@ -344,11 +344,11 @@ class App {
         let data = await this.mealAPI.searchproduct(dataCategory);
          this.compUi.showSearchResult(data,dataCategory) ;
         
-        if (data.length === 0 || !data) {
+        if (data.results.length === 0 || !data.results) {
           this.compUi.showEmptyState();
           return;
         }
-        this.compUi.displaySearchedProduct(data);
+        this.compUi.displaySearchedProduct(data.results);
       });
     });
 
