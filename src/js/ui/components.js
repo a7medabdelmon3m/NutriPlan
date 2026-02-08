@@ -1056,7 +1056,7 @@ export default class components {
         this.searcHresult.innerHTML = `
             ${(!items || items.length === 0) 
                 ? `<p>No products found for "${word}"</p>` 
-                : `<p>Found ${items.length} products for "${word}"</p>`
+                : `<p>Found ${items.pagination.total} products for "${word}"</p>`
             }
         `;
     }
