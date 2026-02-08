@@ -1054,7 +1054,7 @@ export default class components {
   }
         showSearchResult(items, word) {
         this.searcHresult.innerHTML = `
-            ${(!items.results || items.results.length === 0) 
+            ${(!items.results || items.${word? :}.length === 0) 
                 ? `<p>No products found for "${word}"</p>` 
                 : `<p>Found ${items.pagination.total} products for "${word}"</p>`
             }
