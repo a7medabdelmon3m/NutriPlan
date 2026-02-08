@@ -107,7 +107,7 @@ export default class MealsApi{
     }
      async searchproductBybarcode(barcode){
         const data = await this.fetchData(`barcode/${barcode}` , false , true) ; 
-        return  data.result ; 
+        return  data ; 
     }
 
 
