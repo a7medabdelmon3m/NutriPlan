@@ -33,6 +33,7 @@ export default class components {
     this.productsGrid = document.querySelector("#products-grid");
     this.foodlogTodaySection = document.querySelector("#foodlog-today-section");
     this.weeklyChart = document.querySelector("#weekly-chart");
+    this.searcHresult = document.querySelector("#search-result");
     this.productDetailsParent = document.querySelector(
       ".product-details-container-parent",
     );
@@ -1051,4 +1052,12 @@ export default class components {
                 
     `
   }
+        showSearchResult(items, word) {
+        this.searcHresult.innerHTML = `
+            ${(!items || items.length === 0) 
+                ? `<p>No products found for "${word}"</p>` 
+                : `<p>Found ${items.length} products for "${word}"</p>`
+            }
+        `;
+    }
 }
