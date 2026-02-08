@@ -324,8 +324,12 @@ class App {
       }
       this.compUi.showSpinner(this.productsGrid);
       let products = await this.mealAPI.searchproduct(productValue);
+      this.compUi.showSearchResult(products,productValue) ;
+      
       if (!products || products.length === 0) {
         this.compUi.showEmptyState();
+         
+        
         return;
       }
       this.compUi.displaySearchedProduct(products);
@@ -335,8 +339,11 @@ class App {
         e.preventDefault();
         let dataCategory = productBtn.getAttribute("data-category");
         // console.log(dataCategory) ;
+        
         this.compUi.showSpinner(this.productsGrid);
         let data = await this.mealAPI.searchproduct(dataCategory);
+         this.compUi.showSearchResult(data,dataCategory) ;
+        
         if (data.length === 0 || !data) {
           this.compUi.showEmptyState();
           return;
@@ -391,6 +398,8 @@ class App {
       this.compUi.showSpinner(this.productsGrid);
       try {
         let data = await this.mealAPI.searchproductBybarcode(barcode);
+      this.compUi.showSearchResult(data,barcode) ;
+        
         if (!data || (Array.isArray(data) && data.length === 0)) {
           this.compUi.showEmptyState();
           return;
