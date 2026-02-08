@@ -103,7 +103,7 @@ export default class MealsApi{
             limit = '&limit=100' ;
         }
         const data = await this.fetchData(`search?q=${term}${limit}` , false , true) ; 
-        return  data.results ; 
+        return  data ; 
     }
      async searchproductBybarcode(barcode){
         const data = await this.fetchData(`barcode/${barcode}` , false , true) ; 
