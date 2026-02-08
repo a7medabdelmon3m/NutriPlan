@@ -400,16 +400,16 @@ class App {
         let data = await this.mealAPI.searchproductBybarcode(barcode);
       this.compUi.showSearchResult(data,barcode) ;
         
-        if (!data || (Array.isArray(data) && data.length === 0)) {
+        if (!data.results || (Array.isArray(data.results) && data.results.length === 0)) {
           this.compUi.showEmptyState();
           return;
         }
 
         // console.log(data , barcode)
-        let arrayOfObject = [data];
+        let arrayOfObject = [data.results];
 
         this.compUi.displaySearchedProduct(arrayOfObject);
-        this.compUi.displayProductDetails(data);
+        this.compUi.displayProductDetails(data.results);
       } catch (error) {
         console.error("fetch error :", error);
         this.compUi.showEmptyState();
