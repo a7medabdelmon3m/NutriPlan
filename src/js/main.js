@@ -401,16 +401,16 @@ class App {
         console.log('this product of barcode :' , data) ; 
       this.compUi.showSearchResult(data,barcode) ;
         
-        if (!data.results || (Array.isArray(data.results) && data.results.length === 0)) {
+        if (!data.result || (Array.isArray(data.result) && data.result.length === 0)) {
           this.compUi.showEmptyState();
           return;
         }
 
         // console.log(data , barcode)
-        let arrayOfObject = [data.results];
+        let arrayOfObject = [data.result];
 
         this.compUi.displaySearchedProduct(arrayOfObject);
-        this.compUi.displayProductDetails(data.results);
+        this.compUi.displayProductDetails(data.result);
       } catch (error) {
         console.error("fetch error :", error);
         this.compUi.showEmptyState();
