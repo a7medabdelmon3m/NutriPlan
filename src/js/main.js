@@ -358,9 +358,10 @@ class App {
       let barcode = productCard.getAttribute("data-barcode");
       // console.log(barcode)
       this.proData = await this.mealAPI.searchproductBybarcode(barcode);
-      console.log(this.proData);
-      if (!this.proData || this.proData.length === 0) return;
-      this.compUi.displayProductDetails(this.proData);
+      // console.log(this.proData);
+      if (!this.proData.result || this.proData.result.length === 0) return;
+      // console.log(this.proData) ;
+      this.compUi.displayProductDetails(this.proData.result);
     });
     document.addEventListener("click", (e) => {
       // console.log(e.target) ;
@@ -374,17 +375,19 @@ class App {
       if (addProductToLog) {
         this.compUi.closeModal(document.querySelector(".close-product-modal"));
         this.appS.addFoodOrProduct(
-          this.proData.name,
+          this.proData.result.name,
           "product",
-          this.proData.nutrients,
-          this.proData.barcode,
-          this.proData.image,
-          this.proData.brand,
+          this.proData.result.nutrients,
+          this.proData.result.barcode,
+          this.proData.result.image,
+          this.proData.result.brand,
         );
+        this.compUi.showAlert(this.proData)  ; 
         this.appS.saveLogInLocalStorage();
         const n = this.appS.calcTotalNutritons();
         this.compUi.showFoodLog(this.appS.logs, n);
         this.renderWeekCals();
+         
       }
     });
     this.lookupBarcodeBtn.addEventListener("click", async (e) => {

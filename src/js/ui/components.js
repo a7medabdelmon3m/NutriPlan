@@ -635,111 +635,205 @@ export default class components {
 
   displayProductDetails(product) {
     this.productDetailsParent.classList.remove("hidden");
+
     this.productDetailsContainer.innerHTML = `
+
           <div class="p-6 max-w-lg  mx-4 bg-white rounded-2xl shadow-sm border border-gray-100 relative">
+
     <div class="flex items-start gap-6 mb-6">
+
         <div class="w-32 h-32 bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden flex-shrink-0">
+
             <img src="${product.image}" alt="${product.name}" class="w-full h-full object-contain"/>
+
         </div>
+
         <div class="flex-1">
+
             <p class="text-sm text-emerald-600 font-semibold mb-1">${product.brand}</p>
+
             <h2 class="text-2xl font-bold text-gray-900 mb-2">${product.name}</h2>
+
             <p class="text-sm text-gray-500 mb-3">1</p>
+
             
+
             <div class="flex items-center gap-3">
-                <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg" style="background-color: #85BB2F20">
-                    <span class="w-8 h-8 rounded flex items-center justify-center text-white font-bold" style="background-color: #85BB2F">
-                        ${product.nutritionGrade.toUpperCase()}
-                    </span>
-                    <div>
-                        <p class="text-xs font-bold" style="color: #85BB2F">Nutri-Score</p>
-                        <p class="text-[10px] text-gray-600">${this.grade[product.nutritionGrade.toUpperCase()]}</p>
-                    </div>
-                </div>
-                
-                <div class=" ${this.novaGroups[product.novaGroup] ? "" : "hidden"} flex items-center gap-2 px-3 py-1.5 rounded-lg" style="background-color: #00AA1F20">
-                    <span class="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold" style="background-color: #00AA1F">
-                        ${product.novaGroup}
-                    </span>
-                    <div>
-                        <p class="text-xs font-bold" style="color: #00AA1F">NOVA</p>
-                        <p class="text-[10px] text-gray-600">${this.novaGroups[product.novaGroup]} foods</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <button class="close-product-modal text-gray-400 hover:text-gray-600">
-            <i class="fa-solid fa-times text-2xl"></i>
-        </button>
-    </div>
     
-    <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-5 mb-6 border border-emerald-200">
-        <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
-            <i class="fa-solid fa-chart-pie text-emerald-600"></i>
-            Nutrition Facts <span class="text-sm font-normal text-gray-500">(per 100g)</span>
-        </h3>
-        
-        <div class="text-center mb-4 pb-4 border-b border-emerald-200">
-            <p class="text-4xl font-bold text-gray-900">${product.nutrients.calories}</p>
-            <p class="text-sm text-gray-500">Calories</p>
-        </div>
-        
-        <div class="grid grid-cols-4 gap-4">
-            <div class="text-center">
-                <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
-                    <div class="bg-emerald-500 h-2 rounded-full" style="width: ${product.nutrients.protein}%"></div>
-                </div>
-                <p class="text-lg font-bold text-emerald-600">${product.nutrients.protein}g</p>
-                <p class="text-xs text-gray-500">Protein</p>
-            </div>
-            <div class="text-center">
-                <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
-                    <div class="bg-blue-500 h-2 rounded-full" style="width:${product.nutrients.carbs}%"></div>
-                </div>
-                <p class="text-lg font-bold text-blue-600">${product.nutrients.carbs}g</p>
-                <p class="text-xs text-gray-500">Carbs</p>
-            </div>
-            <div class="text-center">
-                <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
-                    <div class="bg-purple-500 h-2 rounded-full" style="width: ${product.nutrients.fat}%"></div>
-                </div>
-                <p class="text-lg font-bold text-purple-600">${product.nutrients.fat}g</p>
-                <p class="text-xs text-gray-500">Fat</p>
-            </div>
-            <div class="text-center">
-                <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
-                    <div class="bg-orange-500 h-2 rounded-full" style="width: ${product.nutrients.sugar}%"></div>
-                </div>
-                <p class="text-lg font-bold text-orange-600">${product.nutrients.sugar}g</p>
-                <p class="text-xs text-gray-500">Sugar</p>
-            </div>
-        </div>
-        
-        <div class="grid grid-cols-3 gap-4 mt-4 pt-4 border-t border-emerald-200">
-            <div class="text-center">
-                <p class="text-sm font-semibold text-gray-900">${product.nutrients.fat}%</g</p>
-                <p class="text-xs text-gray-500">Saturated Fat</p>
-            </div>
-            <div class="text-center">
-                <p class="text-sm font-semibold text-gray-900">${product.nutrients.fiber}%</g</p>
-                <p class="text-xs text-gray-500">Fiber</p>
-            </div>
-            <div class="text-center">
-                <p class="text-sm font-semibold text-gray-900">${product.nutrients.sodium}%</g</p>
-                <p class="text-xs text-gray-500">Sodium</p>
-            </div>
+    ${
+      product.nutritionGrade
+        ? `
+    <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg" style="background-color: #85BB2F20">
+        <span class="w-8 h-8 rounded flex items-center justify-center text-white font-bold" style="background-color: #85BB2F">
+            ${product.nutritionGrade.toUpperCase()}
+        </span>
+        <div>
+            <p class="text-xs font-bold" style="color: #85BB2F">Nutri-Score</p>
+            <p class="text-[10px] text-gray-600">${this.grade[product.nutritionGrade.toUpperCase()] || "Unknown"}</p>
         </div>
     </div>
-    
-    <div class="flex gap-3">
-        <button class="add-product-to-log flex-1 py-3 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition-all" data-barcode="6111252421582">
-            <i class="fa-solid fa-plus mr-2"></i>Log This Food
-        </button>
-        <button class="close-product-modal flex-1 py-3 bg-gray-100 text-gray-700 rounded-xl font-semibold hover:bg-gray-200 transition-all">
-            Close
-        </button>
+    `
+        : ""
+    }
+
+    <div class="${this.novaGroups[product.novaGroup] ? "" : "hidden"} flex items-center gap-2 px-3 py-1.5 rounded-lg" style="background-color: #00AA1F20">
+        <span class="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold" style="background-color: #00AA1F">
+            ${product.novaGroup}
+        </span>
+        <div>
+            <p class="text-xs font-bold" style="color: #00AA1F">NOVA</p>
+            <p class="text-[10px] text-gray-600">${this.novaGroups[product.novaGroup]} foods</p>
+        </div>
     </div>
+
 </div>
+
+        </div>
+
+        <button class="close-product-modal text-gray-400 hover:text-gray-600">
+
+            <i class="fa-solid fa-times text-2xl"></i>
+
+        </button>
+
+    </div>
+
+    
+
+    <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-5 mb-6 border border-emerald-200">
+
+        <h3 class="font-bold text-gray-900 mb-4 flex items-center gap-2">
+
+            <i class="fa-solid fa-chart-pie text-emerald-600"></i>
+
+            Nutrition Facts <span class="text-sm font-normal text-gray-500">(per 100g)</span>
+
+        </h3>
+
+        
+
+        <div class="text-center mb-4 pb-4 border-b border-emerald-200">
+
+            <p class="text-4xl font-bold text-gray-900">${product.nutrients.calories}</p>
+
+            <p class="text-sm text-gray-500">Calories</p>
+
+        </div>
+
+        
+
+        <div class="grid grid-cols-4 gap-4">
+
+            <div class="text-center">
+
+                <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+
+                    <div class="bg-emerald-500 h-2 rounded-full" style="width: ${product.nutrients.protein}%"></div>
+
+                </div>
+
+                <p class="text-lg font-bold text-emerald-600">${product.nutrients.protein}g</p>
+
+                <p class="text-xs text-gray-500">Protein</p>
+
+            </div>
+
+            <div class="text-center">
+
+                <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+
+                    <div class="bg-blue-500 h-2 rounded-full" style="width:${product.nutrients.carbs}%"></div>
+
+                </div>
+
+                <p class="text-lg font-bold text-blue-600">${product.nutrients.carbs}g</p>
+
+                <p class="text-xs text-gray-500">Carbs</p>
+
+            </div>
+
+            <div class="text-center">
+
+                <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+
+                    <div class="bg-purple-500 h-2 rounded-full" style="width: ${product.nutrients.fat}%"></div>
+
+                </div>
+
+                <p class="text-lg font-bold text-purple-600">${product.nutrients.fat}g</p>
+
+                <p class="text-xs text-gray-500">Fat</p>
+
+            </div>
+
+            <div class="text-center">
+
+                <div class="w-full bg-gray-200 rounded-full h-2 mb-2">
+
+                    <div class="bg-orange-500 h-2 rounded-full" style="width: ${product.nutrients.sugar}%"></div>
+
+                </div>
+
+                <p class="text-lg font-bold text-orange-600">${product.nutrients.sugar}g</p>
+
+                <p class="text-xs text-gray-500">Sugar</p>
+
+            </div>
+
+        </div>
+
+        
+
+        <div class="grid grid-cols-3 gap-4 mt-4 pt-4 border-t border-emerald-200">
+
+            <div class="text-center">
+
+                <p class="text-sm font-semibold text-gray-900">${product.nutrients.fat}%</g</p>
+
+                <p class="text-xs text-gray-500">Saturated Fat</p>
+
+            </div>
+
+            <div class="text-center">
+
+                <p class="text-sm font-semibold text-gray-900">${product.nutrients.fiber}%</g</p>
+
+                <p class="text-xs text-gray-500">Fiber</p>
+
+            </div>
+
+            <div class="text-center">
+
+                <p class="text-sm font-semibold text-gray-900">${product.nutrients.sodium}%</g</p>
+
+                <p class="text-xs text-gray-500">Sodium</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    
+
+    <div class="flex gap-3">
+
+        <button class="add-product-to-log flex-1 py-3 bg-emerald-600 text-white rounded-xl font-semibold hover:bg-emerald-700 transition-all" data-barcode="6111252421582">
+
+            <i class="fa-solid fa-plus mr-2"></i>Log This Food
+
+        </button>
+
+        <button class="close-product-modal flex-1 py-3 bg-gray-100 text-gray-700 rounded-xl font-semibold hover:bg-gray-200 transition-all">
+
+            Close
+
+        </button>
+
+    </div>
+
+</div>
+
     `;
   }
 
@@ -921,7 +1015,7 @@ export default class components {
                 <div class="w-full bg-gray-200 rounded-full h-2.5 overflow-hidden ">
                   <div
                     class="bg-amber-500 h-2.5 rounded-full"
-                    style="width: ${( totalNutri.carbs * 100 ) / 250}%"
+                    style="width: ${(totalNutri.carbs * 100) / 250}%"
                   ></div>
                 </div>
               </div>
@@ -947,9 +1041,9 @@ export default class components {
                   Logged Items (${log.length})
                 </h4>
                 ${
-                  log.length === 0 ?
-                  "" :
-                  `
+                  log.length === 0
+                    ? ""
+                    : `
                     <button
                   id="clear-foodlog"
                   class="text-red-500 hover:text-red-600 text-sm font-medium"
@@ -968,9 +1062,9 @@ export default class components {
               <div id="logged-items-list" class="space-y-2">
                 <!-- Empty State -->
                 ${
-                  log.length !== 0 
+                  log.length !== 0
                     ? log
-                        .map((l , idx) => {
+                        .map((l, idx) => {
                           return `
                         <div
                         id ="log-item"
@@ -986,7 +1080,7 @@ export default class components {
                                 <h4 class="font-bold text-gray-900 group-hover:text-emerald-600 transition-colors">${l.name}</h4>
                                 <div class="flex items-center gap-2 mt-1">
                                     <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-0.5 rounded-full">
-                                       ${l.numOfservingOrBrand } ${l.type === 'recipe'?'serving':''} 
+                                       ${l.numOfservingOrBrand} ${l.type === "recipe" ? "serving" : ""} 
                                     </span>
                                     
                                     <span class="text-gray-300">•</span>
@@ -1004,13 +1098,13 @@ export default class components {
 
                         <div class="flex items-center gap-6">
                             <div class="text-right">
-                                <p class="text-xl font-black text-gray-900">${l.type === 'recipe' ? Math.round(l.nutritions.calories*l.numOfservingOrBrand) :l.nutritions.calories }</p>
+                                <p class="text-xl font-black text-gray-900">${l.type === "recipe" ? Math.round(l.nutritions.calories * l.numOfservingOrBrand) : l.nutritions.calories}</p>
                                 <p class="text-[10px] uppercase font-bold text-gray-400 tracking-tighter">kcal</p>
                             </div>
                                 <div class="hidden md:flex gap-2 text-xs text-gray-500">
-                                    <span class="px-2 py-1 bg-amber-50 rounded">${ l.type === 'recipe' ? Math.round(l.nutritions.protein*l.numOfservingOrBrand) :l.nutritions.protein }1g C</span>
-                                    <span class="px-2 py-1 bg-purple-50 rounded">${ l.type === 'recipe' ? Math.round(l.nutritions.carbs*l.numOfservingOrBrand) :l.nutritions.carbs}g F</span>
-                                    <span class="px-2 py-1 bg-blue-50 rounded">${ l.type === 'recipe' ? Math.round(l.nutritions.fat*l.numOfservingOrBrand) :l.nutritions.fat}g P</span>
+                                    <span class="px-2 py-1 bg-amber-50 rounded">${l.type === "recipe" ? Math.round(l.nutritions.protein * l.numOfservingOrBrand) : l.nutritions.protein}1g C</span>
+                                    <span class="px-2 py-1 bg-purple-50 rounded">${l.type === "recipe" ? Math.round(l.nutritions.carbs * l.numOfservingOrBrand) : l.nutritions.carbs}g F</span>
+                                    <span class="px-2 py-1 bg-blue-50 rounded">${l.type === "recipe" ? Math.round(l.nutritions.fat * l.numOfservingOrBrand) : l.nutritions.fat}g P</span>
                                 </div>
 
                             <button
@@ -1035,29 +1129,54 @@ export default class components {
                 }
                 
               </div>
-            </div>`
+            </div>`;
   }
-  showWeekCals(week){
-   this.weeklyChart.innerHTML =  `
-            ${week.map(day=> `
-              <div class="text-center ${day.date === new Date().getDate() ?'bg-indigo-100 rounded-xl':''}">
+  showWeekCals(week) {
+    this.weeklyChart.innerHTML = `
+            ${week
+              .map(
+                (day) => `
+              <div class="text-center ${day.date === new Date().getDate() ? "bg-indigo-100 rounded-xl" : ""}">
                   <p class="text-xs text-gray-500 mb-1">${day.day}</p>
                   <p class="text-sm font-medium text-gray-900">${day.date}</p>
-                  <div class="mt-2 ${day.cals !== 0 ?'text-emerald-600':'text-gray-300'}">
+                  <div class="mt-2 ${day.cals !== 0 ? "text-emerald-600" : "text-gray-300"}">
                     <p class="text-lg font-bold">${day.cals}</p>
                     <p class="text-xs">kcal</p>
-                    <p class="${day.items === 0 ? 'hidden' :''} text-xs text-gray-400 mt-1">${day.items} items</p>
+                    <p class="${day.items === 0 ? "hidden" : ""} text-xs text-gray-400 mt-1">${day.items} items</p>
                   </div>
-                </div>`).join('')}
+                </div>`,
+              )
+              .join("")}
                 
-    `
+    `;
   }
-        showSearchResult(items, word) {
-        this.searcHresult.innerHTML = `
-            ${(!items.results || items.${word? :}.length === 0) 
-                ? `<p>No products found for "${word}"</p>` 
-                : `<p>Found ${items.pagination.total} products for "${word}"</p>`
-            }
-        `;
-    }
+  showSearchResult(items, word) {
+    const isBarcode = /^\d{13}$/.test(word);
+    const foundData = isBarcode
+      ? items.result
+      : items.results && items.results.length > 0;
+
+    const count = isBarcode ? 1 : items.pagination.total;
+    this.searcHresult.innerHTML = `
+                    ${
+                      !foundData
+                        ? `<p>No products found for "${word}"</p>`
+                        : `<p>Found ${count} products for "${word}"</p>`
+                    }
+                `;
+  }
+  showAlert(item) {
+    Swal.fire({
+      position: "bottom-end",
+      title: `${item.result.name} logged to your daily intake 📒`,
+      showConfirmButton: false,
+      timer: 3000,
+
+      toast: true,
+      background: "#00b09b",
+      color: "#ffffff",
+      icon: "success",
+      iconColor: "#fff",
+    });
+  }
 }

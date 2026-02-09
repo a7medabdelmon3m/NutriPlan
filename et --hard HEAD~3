@@ -1,0 +1,28 @@
+[33m826259b[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Refactor displayProductDetails method for clarity
+[33m8e70be7[m Refactor nutrition grade display logic
+[33mc1c06e7[m Refactor nutrition grade display logic in components.js
+[33m74c509c[m Remove alert display in food log update
+[33mc1057a5[m Add alert display for food log updates
+[33m950b15a[m Add showAlert method for success notifications
+[33m5b57ce5[m Enhance search result display logic
+[33me2a86eb[m Correct search result condition in showSearchResult
+[33m7a8965b[m Fix API response handling for product search
+[33mb612b26[m Log product data retrieved by barcode
+[33md4f6030[m Return full data object in searchproductBybarcode
+[33m90ebf45[m Fix data structure handling in search results
+[33mdc09014[m Fix search result display logic in components.js
+[33m52ac340[m Fix product search result handling
+[33m3fc0185[m Fix search result display logic in components.js
+[33mf3abf23[m ..
+[33m7b17c20[m Show search results after product API calls
+[33m34aade2[m Refactor search results section in index.html
+[33md1d1009[m Add search result display functionality
+[33m318a9f4[m Remove weekCals initialization from appState.js
+[33med39ea1[m Update localStorage logic in appState.js
+[33m01d123a[m Fix syntax error in appState.js
+[33m233f449[m Fix syntax error in appState.js
+[33m6350ed6[m Update localStorage structure for weekCals
+[33m72a4810[m fixing key
+[33mff0ad1a[m Fix: fix the floating numbers of total nutrients
+[33m02bec88[m Fix: resolve Vercel 404 error and update file paths
+[33md359edd[m Initial commit: complete NutriPlan core features
